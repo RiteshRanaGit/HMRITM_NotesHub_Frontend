@@ -78,8 +78,8 @@ class ClassesDisplay extends Component {
           const classes = classrooms.map(key =>(
             <div key={key._id} className='row' style={{margin:'10px 0', borderRadius:'5px', border:'1px solid'}}>
               <div className="row" style={{display:'flex',width:'100%', margin:0}}>
-                <h3 style={{padding :'5px 10px'}}>Class </h3>
-                <h3 className='ml-auto' style={{ textAlign:'center',padding :'5px 10px'}}> {key.branch} {key.year} {key.section} {key.semester}</h3>
+                {/* <h3 style={{padding :'5px 10px'}}>Class </h3> */}
+                <h3 className='mr-auto' style={{ textAlign:'center',padding :'5px 10px'}}> {key.branch}, {key.year} year, {key.section} Sec, {key.semester} Sem</h3>
                 <button   onClick={(e)=>this.handleOnClick(e, key._id)}  className="m-1 btn btn-success" >Subjects</button>
                 <button onClick={(e)=>this.handleDeleteOnClick(e, key._id)}   className="m-1 btn btn-danger" >delete</button>
               </div>
