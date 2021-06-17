@@ -1,6 +1,6 @@
 import axios from 'axios';
 //import subjectNoticeReducer from '../reducers/subjectNoticeReducer';
-import { GET_SUBJECTNOTICE, SUBJECTNOTICE_LOADING, GET_ERRORS, CLEAR_CURRENT_SUBJECTNOTICE, GET_SUBJECTNOTICES, GET_CLASSNOTICE} from './types';
+import { GET_SUBJECTNOTICE, SUBJECTNOTICE_LOADING, GET_ERRORS, CLEAR_CURRENT_SUBJECTNOTICE} from './types';
 import url from "../config/url";
 
 

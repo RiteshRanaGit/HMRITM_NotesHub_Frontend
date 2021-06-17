@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_CLASSROOM, CLASSROOM_LOADING, GET_ERRORS, CLEAR_CURRENT_CLASSROOM, GET_CLASSROOMS, DELETE_CLASSROOM} from './types';
+import { GET_CLASSROOM, CLASSROOM_LOADING, GET_ERRORS, CLEAR_CURRENT_CLASSROOM, GET_CLASSROOMS} from './types';
 
 import url from "../config/url";
 // Get current classroom

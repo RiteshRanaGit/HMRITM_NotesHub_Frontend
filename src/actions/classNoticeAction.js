@@ -1,6 +1,6 @@
 import axios from 'axios';
 //import classNoticeReducer from '../reducers/classNoticeReducer';
-import { GET_CLASSNOTICE, CLASSNOTICE_LOADING, GET_ERRORS, CLEAR_CURRENT_CLASSNOTICE, GET_CLASSNOTICESE} from './types';
+import { GET_CLASSNOTICE, CLASSNOTICE_LOADING, GET_ERRORS, CLEAR_CURRENT_CLASSNOTICE} from './types';
 import url from "../config/url";
 
 // Get current classroom
