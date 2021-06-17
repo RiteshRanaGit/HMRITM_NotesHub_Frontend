@@ -14,9 +14,7 @@ class ClassDisplay extends Component {
   constructor(props){
     super(props);
     this.state = {
-        
-       
-        
+   
         subjectTitle:'',  
       
     };
@@ -58,26 +56,19 @@ class ClassDisplay extends Component {
       } 
       else{
         const sub = classroom.map(key =>(
-          <tr key={key._id}>
-              <td>{key.subjectTitle}</td>
-              <td>{key.description}</td>
-              <td><button  onClick={(e)=>this.handleOnClick(e, key.subjectTitle)}  className="btn btn-success" >Notes / Notice</button></td>
-          </tr>
+          
+          <div  key={key._id} className="row" style={{margin:'10px 0', border:'1px solid', borderRadius:'5px'}}>
+            <h3 style={{width:'100%', padding:'5px'}}>{key.subjectTitle}</h3>
+            <p style={{width:'100%', padding:'5px'}}>{key.description}</p>
+            <button style={{width:'100%'}}  onClick={(e)=>this.handleOnClick(e, key.subjectTitle)}  className="m-1 btn btn-success" >Notes / Notice</button>
+            
+          </div>
           
         ));
       
       display = <div>
-                  <h4 className="md-4">Subjects</h4>
-                  <table className="table">
-                      <tr>
-                          <th>Subject</th>
-                          <th>Discription</th>
-                          <th>Click Button</th>
-                      </tr>
-                      <tbody>
-                          {sub}
-                      </tbody>
-                  </table>
+                  <h1 className="md-4">Subjects</h1>
+                  {sub}
                 </div>
 
       }

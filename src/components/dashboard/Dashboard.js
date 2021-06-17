@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getAllClassrooms } from '../../actions/classroomAction';
+import { getEvent } from '../../actions/eventAction';
+
 import {  Redirect} from 'react-router-dom';
 import ClassesDisplay from './ClassesDisplay';
 import ClassDisplay from './ClassDisplay';
@@ -10,7 +12,8 @@ import ClassNoticeDisplay from './ClassNoticeDisplay';
 import SubjectNoticeDisplay from './SubjectNoticeDisplay';
 import NotesDisplay from './NotesDisplay';
 import Spinner from '../common/Spinner';
-
+import EventsDisplay from '../eventsDisplay/EventsDisplay';
+//import EventPublicDisplay from '../eventsDisplay/EventPublicDisplay';
 
 //import Spinner from '../common/Spinner'
 
@@ -18,6 +21,7 @@ class Classroom extends Component {
     componentDidMount(){
         //this.props.getCurrentClassroom(); 
         this.props.getAllClassrooms();
+        this.props.getEvent();
     }
   render() {
     const { user } = this.props.auth;
@@ -26,6 +30,8 @@ class Classroom extends Component {
     const { classNotice } = this.props.classNotice;
     const { subjectNotice } = this.props.subjectNotice;
     const { subject } = this.props.subject;
+    const { events } = this.props.events;
+
 
     
 
@@ -50,6 +56,7 @@ class Classroom extends Component {
                             </Link>
                         </div>
                     </div>
+                    <hr style={{margin:'1rem 0', border:0, borderTop:'1px solid #000'}} />
                     <div className="mt-2 row">
                         <Link to="/create-classroom" className="btn btn-lg btn-info m-2">
                             Create-Classroom
@@ -66,8 +73,9 @@ class Classroom extends Component {
                         <Link to="/upload-notes" className="btn btn-lg btn-info m-2">
                             Upload-Notes
                         </Link>
+                        
                     </div>
-                   
+                    <hr style={{margin:'1rem 0', border:0, borderTop:'1px solid #000'}} />
                 </div>
             )
         
@@ -94,30 +102,37 @@ class Classroom extends Component {
                 </div>
                 <div className="m-1 col-md-12">
                     <div className="row">
-                        <div className="col-lg-8 md-12">
+                        <div className="col-lg-6 md-12">
                             {classes}
                         </div>
-                        <div className="col-lg-4 md-12">
+                        <div className="col-lg-6 md-12">
                             <ClassNoticeDisplay classNotice={classNotice}/>
                         </div>
                     </div>
                 </div>
                 <div className="m-1 col-md-12">
-                <div className="row">
-                        <div className="col-lg-8 md-12">
-                            <ClassDisplay classroom={classroom}/>
-                        </div>
-                        <div className="col-lg-4 md-12">
-                            <SubjectNoticeDisplay subjectNotice={subjectNotice}/>
-                        </div>
-                    </div>
-                    
+                    <div className="row">
+                            <div className="col-lg-6 md-12">
+                                <ClassDisplay classroom={classroom}/>
+                            </div>
+                            <div className="col-lg-6 md-12">
+                                <SubjectNoticeDisplay subjectNotice={subjectNotice}/>
+                            </div>
+                    </div>  
                 </div>
                 <div className="m-1 col-md-12">
-                    
-                        <NotesDisplay subject={subject}/>
-                    
-                </div>       
+                        <NotesDisplay subject={subject}/>                  
+                </div>              
+                <div className="m-1 col-md-12" >
+                        <div style={{display:'flex'}}>
+                            <h3 style={{textAlign: 'center', margin:'0', padding:'10px 0'}}>Events</h3>
+                            <Link to="/upload-events" className="btn btn-lg btn-info ml-auto">
+                                Upload-Events
+                            </Link>
+                        </div>
+                        <EventsDisplay subject={events}/>
+                        {/* <EventPublicDisplay subject={events}/> */}
+                </div>        
               </div>
           </div>
       </div>    
@@ -128,6 +143,7 @@ class Classroom extends Component {
 Classroom.prototypes = {
     //getCurrentClassroom: PropTypes.func.isRequired,
     getAllClassrooms: PropTypes.func.isRequired,
+    getEvent: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
     classrooms: PropTypes.object.isRequired,
     classroom: PropTypes.object.isRequired,
@@ -143,9 +159,10 @@ const mapStateProps = state => ({
     classroom: state.classroom,
     subjectNotice: state.subjectNotice,
     subject: state.subject,
+    events: state.events,
     auth: state.auth,
     user: state.auth.user
 })
 
 
-export default connect(mapStateProps, {  getAllClassrooms }) (Classroom); 
+export default connect(mapStateProps, {  getAllClassrooms, getEvent }) (Classroom); 

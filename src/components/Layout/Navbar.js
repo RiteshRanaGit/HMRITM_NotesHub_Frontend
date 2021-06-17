@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/authActions';
 import { clearCurrentClassroom } from '../../actions/classroomAction';
-
+import logo from '../../img/HMRLogo.png'
 
 class Navbar extends Component {
 
@@ -51,9 +51,11 @@ class Navbar extends Component {
         );
 
         return (
-            <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
+            <nav className="navbar navbar-expand-sm navbar-dark  mb-4" style={{backgroundColor:'#02009C'}}>
                 <div className="container">
-                <Link className="navbar-brand" to="/">HMRITM Notes Hub</Link>
+                <Link className="navbar-brand" to="/">
+                    <img style={{ height: "40px", width:'140px', borderRadius:'5px', backgroundColor:'#ffffff'}} src={logo} alt="" />
+                </Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
                     <span className="navbar-toggler-icon"></span>
                 </button>

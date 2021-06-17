@@ -38,47 +38,30 @@ class ClassNoticeDisplay extends Component {
   }
   render() {
 
-    
     const classNotice  = this.props.classNotice;
     console.log(" console loge class notice", classNotice)
-  
-      
-    // });
+
     var notice = '';
     var display='';
     if(!classNotice || classNotice.length===0){
          display = <div>
-             <h4 className="md-4">Class Notice</h4>
+             <h4 className="md-4">Classroom Notice</h4>
          </div>
-            
-        
     } else{
         notice = classNotice.map(key =>(
-            <tr key={key._id}>
-                <td>{key.classNoticeTitle}</td>
-                <td>{key.description}</td>
-                <td>
-                    <button onClick={(e)=>this.handleDeleteOnClick(e, key._id)}  className="btn btn-danger"  >Delete</button>
-                </td>
-            </tr>
+            <div key={key._id} className="row " style={{margin:'0', borderRadius:'5px', border:'1px solid', padding:'10px'}}>    
+                <h3 style={{width:'100%'}}>{key.classNoticeTitle}</h3>
+                <p style={{width:'100%'}}>{key.description}</p>
+                <button onClick={(e)=>this.handleDeleteOnClick(e, key._id)}className="btn btn-danger" style={{width:"100%", height:'100%'}} >Delete</button>
+            </div>
             
         ));
         display=<div>
-            <h4 className="md-4">Class Notice</h4>
-            <table className="table">
-                <tr>
-                    <th>Notice Title</th>
-                    <th>Discription</th>
-                    <th>Delete</th>
-                </tr>
-                <tbody>
-                    {notice}
-                </tbody>
-            </table>
+            <h1 className="md-4">Classroom Notices</h1>
+            {notice}
         </div>
     }
       
-      //console.log(" hello ye hai",classroom);
     return (
       <div>
         {display}

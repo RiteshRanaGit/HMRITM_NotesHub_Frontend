@@ -6,6 +6,8 @@ import subjectReducer from './subjectReducer';
 import classNoticeReducer from './classNoticeReducer';
 import subjectNoticeReducer from './subjectNoticeReducer';
 import notesReducer from './notesReducer';
+import eventReducer from './eventReducer';
+
 
 
 
@@ -17,4 +19,5 @@ export default combineReducers({
     classNotice: classNoticeReducer,
     subjectNotice: subjectNoticeReducer,
     notes: notesReducer,
+    events: eventReducer
 })

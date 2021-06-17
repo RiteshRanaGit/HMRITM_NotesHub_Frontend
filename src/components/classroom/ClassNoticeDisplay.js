@@ -9,46 +9,10 @@ import isEmpty from '../../validation/is-Empty';
 
 class ClassNoticeDisplay extends Component {
   
-//   constructor(props){
-//     super(props);
-//     this.state = {
-        
-       
-        
-//         subjectTitle:'',  
-      
-//     };
-//     //this.onClick = this.onClick.bind(this);
-//   }
-  
-  
-//   handleOnClick = (e, subjectTitle) => {
-//     e.preventDefault();
-//     this.setState({subjectTitle}, ()=>{
-//       const data = {
-    
-//         // yearOfAdmission: this.props.user.year,
-//         // branch: this.props.user.branch,
-//         // section: this.props.user.section,
-//         // role: this.props.user.role,
-//         subjectTitle:this.state.subjectTitle,
-        
-//        };
-//        ////console.log("ooyee data",data);
-//       this.props.getSubject(data);
-//     })
-    
-     
- // }
   render() {
 
     
     const ClassNotice  = this.props.ClassNotice;
-    
-    // cla.forEach(element => {
-      
-    // });
-    //var notice= '';
     var display = '';
     if(!ClassNotice || ClassNotice.length===0 || isEmpty(ClassNotice) ){
          display  = <div>
@@ -58,30 +22,23 @@ class ClassNoticeDisplay extends Component {
         
     } else{
       const  notice = ClassNotice.map(key =>(
-            <tr key={key._id}>
-                <td>{key.classNoticeTitle}</td>
-                <td>{key.description}</td>
-                {/* <td><button  className="btn btn-success"  ><a href={key.file.file_url} download target="_blank" style={{color:"white"}}>Download</a></button></td> */}
-            </tr>
+           
+            <div key={key._id} className="row " style={{margin:'0', borderRadius:'5px', border:'1px solid', padding:'10px'}}>
+              
+                <h3 style={{width:'100%'}}>{key.classNoticeTitle}</h3>
+                <p style={{width:'100%'}}>{key.description}</p>
+               
+              
+            </div>
             
         ));
         display = 
         <div>
-        <h4 className="md-4">Class Notice</h4>
-        <table className="table">
-            <tr>
-                <th>Notice Title</th>
-                <th>Discription</th>
-                
-            </tr>
-            <tbody>
-                {notice}
-            </tbody>
-        </table>
+        <h1 className="md-4">Class Notice</h1>
+        {notice}
       </div>
     }
-      
-      //console.log(" hello ye hai",classroom);
+
     return (
       <div>
         {display}
@@ -91,7 +48,7 @@ class ClassNoticeDisplay extends Component {
 }
 
 ClassNoticeDisplay.prototypes = {
-  //getSubject: PropTypes.func.isRequired,
+
   auth: PropTypes.object.isRequired,
   
 }

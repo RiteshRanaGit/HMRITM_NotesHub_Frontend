@@ -58,35 +58,29 @@ class NotesDisplay extends Component {
         
     } else{
         notes = subject.map(key =>(
-            <tr key={key._id}>
-                <td>{key.notesTitle}</td>
-                <td>{key.description}</td>
-                <td>
-                  <button  className="btn btn-success"  ><a href={key.file.file_url} download target="_blank" style={{color:"white"}}>Download</a>
-                  </button>
-                </td>
-                <td><button onClick={(e)=>this.handleDeleteOnClick(e, key._id)} className="btn btn-danger">Delete</button></td>
-            </tr>
-            
+            // <tr key={key._id}>
+            //     <td>{key.notesTitle}</td>
+            //     <td>{key.description}</td>
+            //     <td>
+            //       <button  className="btn btn-success"  ><a href={key.file.file_url} download target="_blank" style={{color:"white"}}>Download</a>
+            //       </button>
+            //     </td>
+            //     <td><button onClick={(e)=>this.handleDeleteOnClick(e, key._id)} className="btn btn-danger">Delete</button></td>
+            // </tr>
+            <div key={key._id} className="row" style={{margin:'10px 0', border:'1px solid', borderRadius:'5px'}}>
+              <h3 style={{width:'100%', padding:'5px'}}>{key.notesTitle}</h3>
+              <p style={{width:'100%', padding:'5px'}}>{key.description}</p>
+              <button style={{width:'49%'}} className="m-1 btn btn-success"  ><a href={key.file.file_url} download target="_blank" style={{color:"white"}}>Download</a>
+              </button>
+              <button style={{width:'49%'}} onClick={(e)=>this.handleDeleteOnClick(e, key._id)} className="m-1 btn btn-danger">Delete</button>
+            </div>
         ));
         display = 
         <div>
-          <h4 className="md-4"> Subject Notes</h4>
-          <table className="table">
-              <tr>
-                  <th>Notes Title</th>
-                  <th>Discription</th>
-                  <th> Download</th>
-                  <th>Delete</th>
-              </tr>
-              <tbody>
-                  {notes}
-              </tbody>
-          </table>
+          <h1 className="md-4"> Subject Notes</h1>
+          {notes}
         </div>
-    }
-      
-      //console.log(" hello ye hai",classroom);
+    }     
     return (
       <div>
         {display}

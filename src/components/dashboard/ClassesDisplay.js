@@ -16,12 +16,7 @@ class ClassesDisplay extends Component {
   constructor(props){
     super(props);
     this.state = {
-      // branch: '',
-      // year: '',
-      // section:'',
-      // semester:''
       classId: ''
-      
     };
     //this.onClick = this.onClick.bind(this);
   }
@@ -37,10 +32,6 @@ class ClassesDisplay extends Component {
 
         
        };
-       //console.log("ooyee data",data);
-    
-      // this.props.getSubject(data);
-      //console.log("data hai ye", data);
       this.props.clearCurrentSubjectNotice();
       this.props.clearCurrentSubject();
       this.props.getCurrentDepartmentClassroom(data);
@@ -85,44 +76,23 @@ class ClassesDisplay extends Component {
                 </div>
     } else{
           const classes = classrooms.map(key =>(
-            <tr key={key._id}>
-                <td>{key.branch}</td>
-                <td>{key.year}</td>
-                <td>{key.section}</td>
-                <td>{key.semester}</td>
-                {/* onClick={(e)=>this.handleOnClick(e)} */}
-                
-                <td>
-                  <button   onClick={(e)=>this.handleOnClick(e, key._id)}  className="m-1 btn btn-success" >Subjects</button>
-                
-                </td>
-                <td>
-                  <button onClick={(e)=>this.handleDeleteOnClick(e, key._id)}   className="m-1 btn btn-danger" >delete</button>
-                </td>
-            </tr>
+            <div key={key._id} className='row' style={{margin:'10px 0', borderRadius:'5px', border:'1px solid'}}>
+              <div className="row" style={{display:'flex',width:'100%', margin:0}}>
+                <h3 style={{padding :'5px 10px'}}>Class </h3>
+                <h3 className='ml-auto' style={{ textAlign:'center',padding :'5px 10px'}}> {key.branch} {key.year} {key.section} {key.semester}</h3>
+                <button   onClick={(e)=>this.handleOnClick(e, key._id)}  className="m-1 btn btn-success" >Subjects</button>
+                <button onClick={(e)=>this.handleDeleteOnClick(e, key._id)}   className="m-1 btn btn-danger" >delete</button>
+              </div>
+
+            </div>
             
         ));
         display = <div>
-                    <h4 className="">Classrooms</h4>
-                    <table className="table">
-                        <tr>
-                            <th>Branch</th>
-                            <th>year</th>
-                            <th>section</th>
-                            <th>semester</th>
-                            <th>Action</th>
-                            <th>Delete</th>
-                        </tr>
-                        <tbody>
-                            {classes}
-                        </tbody>
-                    </table>
+                    <h1 className="">Classrooms</h1>
+                    {classes}
                   </div>
     }
 
-
-      
-      //console.log(" hello ye hai",classroom);
     return (
       <div>
         {display}

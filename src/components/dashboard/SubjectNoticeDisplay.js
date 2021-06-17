@@ -54,30 +54,21 @@ class SubjectNoticeDisplay extends Component {
         
     } else{
         notice = subjectNotice.map(key =>(
-            <tr key={key._id}>
-                <td>{key.subjectNoticeTitle}</td>
-                <td>{key.description}</td>
-                <td><button onClick={(e)=>this.handleDeleteOnClick(e, key._id)} className="btn btn-danger"  >Delete</button></td>
-            </tr>
+
+            <div key={key._id} className="row " style={{margin:'0', borderRadius:'5px', border:'1px solid', padding:'10px'}}>
+              
+                <h3 style={{width:'100%'}}>{key.subjectNoticeTitle}</h3>
+                <p style={{width:'100%'}}>{key.description}</p>
+                <button onClick={(e)=>this.handleDeleteOnClick(e, key._id)}className="btn btn-danger" style={{width:"100%", height:'100%'}} >Delete</button>
+            </div>
             
         ));
         display = 
         <div>
-            <h4 className="md-4"> Subject Notice</h4>
-            <table className="table">
-                <tr>
-                    <th>Subject Notice Title</th>
-                    <th>Discription</th>
-                    <th>Delete</th>
-                </tr>
-                <tbody>
-                    {notice}
-                </tbody>
-            </table>
+            <h1 className="md-4"> Subject Notice</h1>
+            {notice}
         </div>
     }
-      
-      //console.log(" hello ye hai",classroom);
     return (
       <div>
         {display}
@@ -93,8 +84,6 @@ SubjectNoticeDisplay.prototypes = {
 }
 
 const mapStateProps = state => ({
-
- 
   auth: state.auth,
   user: state.auth.user
 })

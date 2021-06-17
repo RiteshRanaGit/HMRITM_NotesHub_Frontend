@@ -26,6 +26,7 @@ import CreateSubject from './components/create-subject/CreateSubject';
 import CreateClassNotice from './components/create-class-notice/CreateClassNotice';
 import CreateSubjectNotice from './components/create-subject-notice/CreateSubjectNotice';
 import UploadNotes from './components/upload-notes/UploadNotes';
+import UploadEvents from './components/upload-events/UploadEvents';
 import RegisterAdmin from './components/auth/RegisterAdmin';
 
 
@@ -93,6 +94,9 @@ function App() {
             </Switch>
             <Switch>
               <PrivateRoute exact path="/upload-notes" component={UploadNotes}/>
+            </Switch>
+            <Switch>
+              <PrivateRoute exact path="/upload-events" component={UploadEvents}/>
             </Switch>
             <Switch>
               <PrivateRoute exact path="/register-admin" component={RegisterAdmin}/>

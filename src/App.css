@@ -4,10 +4,13 @@ img {
 
 .landing {
   position: relative;
-  background: url('./img/showcase.jpg') no-repeat;
+  /* background: url('./img/showcase.jpg') no-repeat; */
+  background: url('./img/HMRITMFULL.jpg') no-repeat;
+
+  /* background:url('./img/HMRCover2.jpg') no-repeat; */
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: 180vh;
   margin-top: -24px;
   margin-bottom: -50px;
 }
@@ -17,7 +20,7 @@ img {
 }
 
 .dark-overlay {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   top: 0;
   left: 0;
@@ -36,4 +39,18 @@ img {
 
 .form-control::placeholder {
   color: #bbb !important;
+}
+/* .react-multi-carousel-list {
+  overflow: visible;
+} */
+
+.react-multi-carousel-dot {
+display: none;
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid #f8f9fa;
 }
