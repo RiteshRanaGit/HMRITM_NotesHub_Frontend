@@ -72,20 +72,20 @@ class Classroom extends Component {
                     
                             <h4>Welcome {user.name}</h4>
                             <div className="m-4 row" style={{display:"flex"}}>
-                                <div className="m-1 col-lg-5 md-12">
+                                <div className=" col-lg-6 md-12">
                                     <ClassNoticeDisplay ClassNotice={classNotice}/>
                                     
                                 </div>
-                                <div className="m-1 col-lg-5 md-12">
+                                <div className="col-lg-6 md-12">
                                     <ClassDisplay classroom={classroom}/>
                                 </div>
                                 
                             </div>
                             <div className="m-4 row" style={{display:"flex"}}>
-                                <div className="m-1 col-lg-5 md-12">
+                                <div className=" col-lg-6 md-12">
                                     <SubjectDisplay subject={subject}/>
                                 </div>
-                                <div className="m-1 col-lg-5 md-12">
+                                <div className=" col-lg-6 md-12">
                                     <SubjectNoticeDisplay subjectNotice={subjectNotice}/>
                                 </div>
                                 
